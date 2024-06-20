@@ -1,11 +1,16 @@
-import React from "react";
+import { WidgetsGrid } from "@/components";
 
-const Main = () => {
+export const metadata = {
+  title: "Admin Dashboard",
+};
+const MainPage = () => {
   return (
-    <div>
-      <h1>Main page</h1>
+    <div className="text-black p-2">
+      <h1 className="mt-2 text-3xl">Dashboard</h1>
+      <span className="text-xl">Información general</span>
+      <WidgetsGrid />
     </div>
   );
 };
 
-export default Main;
+export default MainPage;
