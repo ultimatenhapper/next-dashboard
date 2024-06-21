@@ -1,20 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PokemonGrid } from "./PokemonGrid";
 import { useAppSelector } from "@/store";
 import { IoHeartOutline } from "react-icons/io5";
 
 export const FavoritePokemons = () => {
   const favoritePokemons = useAppSelector((state) =>
-    Object.values(state.pokemons)
+    Object.values(state.pokemons.favorites)
   );
   const [pokemons, setPokemons] = useState(favoritePokemons);
 
+  //   useEffect(() => {
+  //     console.log({ favoritePokemons});
+  //     setPokemons(favoritePokemons);
+  //   }, [favoritePokemons]);
+
   return (
     <>
-      {favoritePokemons.length <= 0 && <NoFavorites />}
-      <PokemonGrid pokemons={pokemons} />
+      {favoritePokemons.length <= 0 ? (
+        <NoFavorites />
+      ) : (
+        <PokemonGrid pokemons={favoritePokemons} />
+      )}
     </>
   );
 };
