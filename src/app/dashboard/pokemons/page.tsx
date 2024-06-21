@@ -18,7 +18,7 @@ const getPokemons = async (
   return pokemons;
 };
 
-const Pokemons = async () => {
+export default async function PokemonsPage() {
   const pokemons = await getPokemons(151);
   return (
     <div className="flex flex-col">
@@ -28,6 +28,4 @@ const Pokemons = async () => {
       <PokemonGrid pokemons={pokemons} />
     </div>
   );
-};
-
-export default Pokemons;
+}
